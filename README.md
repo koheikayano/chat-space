@@ -4,19 +4,20 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|name|string|null: false|
 ### Association
-- has_many :tweets
-- has_many :groups
+- has_many :groups, through: :groups_users
+- has_many :groups_users
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|text|null: false|
+|name|string|null: false|
 ### Association
 - belongs_to :user
 - has_many :tweets
 - has_many  :users  through:  :group_users
+  has_many :groups_users
 
 ## groups_usersテーブル
 |Column|Type|Options|
